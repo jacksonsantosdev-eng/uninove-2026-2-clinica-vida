@@ -86,3 +86,15 @@ footer {
     padding: 1rem;
     margin-top: 2rem;
 }
+
+.lista-especialidades {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+@media (min-width: 640px) {
+    .lista-especialidades {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
