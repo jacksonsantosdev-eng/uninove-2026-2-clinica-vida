@@ -20,7 +20,7 @@ public class EspecialidadesController : Controller
 
     public IActionResult Details(int id, string nome)
     {
-        if (id < 1 || id > 3)
+        if (id < 1 || id > 4)
         {
             return NotFound();
         }
