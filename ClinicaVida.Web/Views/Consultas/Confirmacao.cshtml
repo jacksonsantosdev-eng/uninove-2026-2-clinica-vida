@@ -1,0 +1,36 @@
+
+@model ClinicaVida.Web.Models.Consulta
+
+@{
+    ViewData["Title"] = "Confirmação de consulta";
+}
+
+<h1>Consulta agendada com sucesso!</h1>
+
+<div class="alert alert-success">
+    Seu agendamento foi realizado com sucesso.
+</div>
+
+<h2>Detalhes do agendamento</h2>
+
+<p>
+    <strong>Paciente:</strong> @ViewBag.NomePaciente
+</p>
+
+<p>
+    <strong>Médico:</strong> @ViewBag.NomeMedico
+</p>
+
+<p>
+    <strong>Data:</strong> @Model.Data.ToString("dd/MM/yyyy")
+</p>
+
+<p>
+    <strong>Horário:</strong> @Model.Horario.ToString(@"hh\:mm")
+</p>
+
+<a asp-controller="Consultas"
+   asp-action="Agendar"
+   class="btn btn-primary">
+    Agendar outra consulta
+</a>

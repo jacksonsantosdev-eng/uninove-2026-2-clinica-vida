@@ -1,0 +1,56 @@
+
+@model ClinicaVida.Web.Models.Consulta
+
+@{
+    ViewData["Title"] = "Agendar consulta";
+}
+
+<h1>Agendar consulta</h1>
+
+<form asp-controller="Consultas" asp-action="Agendar" method="post">
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="mb-3">
+        <label asp-for="PacienteId"></label>
+        <select asp-for="PacienteId" asp-items="ViewBag.Pacientes" class="form-select">
+            <option value="0">Selecione o paciente</option>
+        </select>
+        <span asp-validation-for="PacienteId" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="MedicoId"></label>
+        <select asp-for="MedicoId" asp-items="ViewBag.Medicos" class="form-select">
+            <option value="0">Selecione o médico</option>
+        </select>
+        <span asp-validation-for="MedicoId" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Data"></label>
+        <input asp-for="Data" class="form-control" />
+        <span asp-validation-for="Data" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Horario"></label>
+        <input asp-for="Horario" class="form-control" />
+        <span asp-validation-for="Horario" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Observacoes"></label>
+        <textarea asp-for="Observacoes" class="form-control"></textarea>
+        <span asp-validation-for="Observacoes" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">
+        Confirmar agendamento
+    </button>
+
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

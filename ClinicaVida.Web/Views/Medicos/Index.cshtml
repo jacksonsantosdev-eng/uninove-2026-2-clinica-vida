@@ -1,0 +1,40 @@
+
+@model IEnumerable<ClinicaVida.Web.Models.Medico>
+@using ClinicaVida.Web.Models
+
+@{
+    ViewData["Title"] = "Médicos";
+}
+
+<h1>Médicos da Clínica Vida+</h1>
+
+<form method="get" action="/Medicos">
+    <label for="especialidadeId">Especialidade:</label>
+
+    <select name="especialidadeId" id="especialidadeId">
+        <option value="">Todas as especialidades</option>
+
+        @foreach (var e in (List<Especialidade>)ViewBag.Especialidades)
+        {
+            <option value="@e.Id">@e.Nome</option>
+        }
+    </select>
+
+    <button type="submit">Filtrar</button>
+</form>
+
+<hr />
+
+<h2>Lista de médicos</h2>
+
+<ul>
+    @foreach (var medico in Model)
+    {
+        <li>
+            <a href="/Medicos/Details/@medico.Id">
+                @medico.Nome
+            </a>
+            - CRM: @medico.Crm
+        </li>
+    }
+</ul>
